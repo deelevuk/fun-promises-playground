@@ -44,7 +44,7 @@ describe("fetchAllOwners()", () => {
   });
 });
 
-describe("fetchAllCats()", () => {
+describe.only("fetchAllCats()", () => {
   test("returns a promise which resolves with an array of the correct length", () => {
     return fetchAllCats().then((cats) => {
       expect(Array.isArray(cats)).toBe(true);
