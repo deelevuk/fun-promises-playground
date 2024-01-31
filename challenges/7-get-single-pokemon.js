@@ -1,6 +1,21 @@
 const inquirer = require('inquirer')
 const axios = require('axios')
 
+inquirer
+  .prompt([
+    {
+      name: 'name1',
+      message: "Which Pokemon do you want to find?",
+      type: "input"
+    },
+  ])
+  .then(function (answer) {
+    const response = axios .get(`https://pokeapi.co/api/v2/pokemon/${answer}`)
+    console.log(response.answer.data)
+})
+.catch((error) => {
+    console.log(error)
+})
 
 
 
@@ -11,6 +26,14 @@ const axios = require('axios')
 
 
 /*
+async function getAllPokemon() {
+   const response = await axios 
+  .get("https://pokeapi.co/api/v2/pokemon")
+console.log(response.data.results)
+  return response
+}
+
+getAllPokemon()
 In 7-get-single-pokemon.js, use inquirer to ask the user for a number that will represent the pokemon id, and then use axios to make a request to fetch data from https://pokeapi.co/api/v2/pokemon/6 to get info about the pokemon with that id.
 
 Log the name of the pokemon with that id.
